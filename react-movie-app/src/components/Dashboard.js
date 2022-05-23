@@ -7,7 +7,6 @@ const apiKey = "api_key=efb8d52d72f50732f48333d163521021";
 const mainURL = "https://api.themoviedb.org/3";
 ////////////
 const apiURL = `${mainURL}/discover/movie?sort_by=popularity.desc&${apiKey}`;
-
 const searchURL = `${mainURL}/search/movie?${apiKey + "&query="}`;
 
 function Dashboard() {
@@ -61,7 +60,7 @@ function Dashboard() {
       </header>
 
       <div className="theme-div">
-        <button class="theme-button" id="btn" onClick={switchTheme}>
+        <button class="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2" id="btn" onClick={switchTheme}>
           Change Theme
         </button>
       </div>

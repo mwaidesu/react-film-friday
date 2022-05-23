@@ -65,15 +65,15 @@ outline:0;
   background-color: var(--background);
 }
 
-.theme-button{
-    background-color: #0a81AB;
-    border: 2px solid #F9DFDC;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    color: white;
-    font-family: inherit;
-}
+/* .theme-button {
+  background-color: #0a81AB;
+  border: 2px solid #F9DFDC;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: white;
+  font-family: inherit;
+} */
 
 .movie-container{
 background-color: var(--background);
@@ -123,7 +123,7 @@ justify-content: center;
   background-color: var(--background);
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
-  box-shadow: 0.2px 4px 5px rgba(0,0,0,0,1);
+  box-shadow: 0.2px 4px 5px rgba(0, 0, 0, 0, 1);
   position:absolute;
   bottom: 0;
   left: 0;
@@ -134,8 +134,8 @@ justify-content: center;
   padding: 1rem;
   transform:translateY(102%);
   transition: transform 0.3s ease-in-out;
-
-}
+  
+  }
 
 .movie:hover .movie-over{
   transform: translateY(0%)

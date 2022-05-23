@@ -13,10 +13,12 @@ const Movie = ({ title, overview, poster_path, vote_average }) => {
     <div className="movie">
       <img src={IMG_URL + poster_path} alt={title} />
       <div className="movie-info">
-        <h3>{vote_average.toFixed(1)}</h3>
+        <h3>
+          {vote_average.toFixed(1)}
+        </h3>
       </div>
       <div className="movie-over">
-        <h2 className="text-xl font-bold">{title}</h2>
+        <h2 className="text-2xl font-bold">{title}</h2>
         <p>{overview}</p>
       </div>
     </div>
