@@ -40,7 +40,10 @@ body{
   display: flex;
   justify-content: flex-end;
   background-color: #0C4271;
-  /* border-bottom: 2px solid #F9DFDC; */
+  position:sticky;
+  overflow:hidden;
+  top: 0;
+  z-index: 1;
 }
 
 .search{
@@ -61,7 +64,6 @@ outline:0;
   padding: 1rem;
   display: flex;
   justify-content: flex-end;
-  /* border-bottom: 2px solid #F9DFDC; */
   background-color: var(--background);
 }
 
