@@ -5,8 +5,7 @@ import useLocalStorage from "use-local-storage";
 import { Link } from "react-router-dom";
 
 const apiKey = "api_key=efb8d52d72f50732f48333d163521021";
-const actionUrl =
-  `https://api.themoviedb.org/3/discover/movie?${apiKey}&with_genres=28`;
+const actionUrl = `https://api.themoviedb.org/3/discover/movie?${apiKey}&with_genres=28`;
 
 export function ActionMovies() {
   const [movies, setMovies] = useState([]);
@@ -33,13 +32,17 @@ export function ActionMovies() {
       </header>
 
       <div className="theme-div">
-        <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
-          <Link to="/">Home</Link>
-        </button>
+        <Link to="/">
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+            Home
+          </button>
+        </Link>
 
-        <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
-          <Link to="/horror">Horror Movies</Link>
-        </button>
+        <Link to="/horror">
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+            Horror Movies
+          </button>
+        </Link>
 
         <button
           className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2"

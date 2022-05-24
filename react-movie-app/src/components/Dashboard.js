@@ -60,13 +60,17 @@ function Dashboard() {
       </header>
 
       <div className="theme-div">
-        <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
-          <Link to="/horror">Horror Movies</Link>
-        </button>
+        <Link to="/horror">
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+            Horror Movies
+          </button>
+        </Link>
 
-        <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
-          <Link to="/action">Action Movies</Link>
-        </button>
+        <Link to="/action">
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+            Action Movies
+          </button>
+        </Link>
 
         <button
           className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2"

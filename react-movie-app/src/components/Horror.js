@@ -32,13 +32,18 @@ export function Horror() {
       </header>
 
       <div className="theme-div">
-        <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
-          <Link to="/">Home</Link>
-        </button>
+        <Link to="/">
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+            Home
+          </button>
+        </Link>
 
-        <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
-          <Link to="/action">Action Movies</Link>
-        </button>
+        <Link to="/action">
+          {" "}
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+            Action Movies
+          </button>
+        </Link>
 
         <button
           className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2"
