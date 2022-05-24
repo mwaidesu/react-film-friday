@@ -36,6 +36,10 @@ export function Horror() {
           <Link to="/">Home</Link>
         </button>
 
+        <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+          <Link to="/action">Action Movies</Link>
+        </button>
+
         <button
           className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2"
           id="btn"

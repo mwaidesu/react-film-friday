@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom'
 
 const apiKey = "api_key=efb8d52d72f50732f48333d163521021";
 const mainURL = "https://api.themoviedb.org/3";
-////////////
 const apiURL = `${mainURL}/discover/movie?sort_by=popularity.desc&${apiKey}`;
 const searchURL = `${mainURL}/search/movie?${apiKey + "&query="}`;
 

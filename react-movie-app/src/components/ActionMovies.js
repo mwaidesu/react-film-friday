@@ -28,13 +28,17 @@ export function ActionMovies() {
 
   return (
     <div data-theme={theme}>
-      <header className="header action-header font-semibold text-white text-3xl" >
+      <header className="header action-header font-semibold text-white text-3xl">
         <h1>Action Movies</h1>
       </header>
 
       <div className="theme-div">
         <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
           <Link to="/">Home</Link>
+        </button>
+
+        <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+          <Link to="/horror">Horror Movies</Link>
         </button>
 
         <button
