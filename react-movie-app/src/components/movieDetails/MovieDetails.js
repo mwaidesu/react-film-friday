@@ -32,7 +32,15 @@ export const MovieDetails = () => {
   };
 
   return (
-    <>
+    <div
+      data-theme={theme}
+      // style={{
+      //   position: "relative",
+      //   backgroundImage: `url(${IMG_URL + movie.backdrop_path})`,
+      //   backgroundPosition: "100% 100%",
+      //   backgroundSize: "100% 100%",
+      // }}
+    >
       <div className="theme-div">
         <button
           className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2"
@@ -43,10 +51,7 @@ export const MovieDetails = () => {
         </button>
       </div>
 
-      <div
-        className="details flex py-5 px-10 items-center mt-4 "
-        data-theme={theme}
-      >
+      <div className="details flex py-5 px-10 items-center mt-4 ">
         <div className="details-image">
           <img
             src={IMG_URL + movie.poster_path}
@@ -58,12 +63,34 @@ export const MovieDetails = () => {
         </div>
         <div class="details-extra m-12 text-xl">
           <h2 className="font-bold text-4xl">{movie.title}</h2>
-          <p className="py-2 text-2xl">Rating: {movie.vote_average}</p>
-          <p className="py-4 ">{movie.overview}</p>
-          <p className="py-2">Release Date: {movie.release_date}</p>
-          <p className="py-2">Runtime: {movie.runtime} minutes</p>
+          <h3>{movie.director}</h3>
+          <p className="py-2 text-2xl">
+            <span className="font-bold">Rating: </span>
+            {movie.vote_average}
+          </p>
+          <p className="py-4 ">
+            <span className="font-bold">Plot: </span>
+            {movie.overview}
+          </p>
+          <p className="py-2">
+            <span className="font-bold">Release Date: </span>
+            {movie.release_date}
+          </p>
+          <p className="py-2">
+            <span className="font-bold">Runtime: </span>
+            {movie.runtime} minutes
+          </p>
         </div>
       </div>
-    </>
+
+      <div className=" flex justify-center">
+        <button
+          className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2"
+          id="btn"
+        >
+          Add Movie to Favorites
+        </button>
+      </div>
+    </div>
   );
 };

@@ -21,6 +21,7 @@ export function Horror() {
       .then((response) => response.json())
       .then((data) => {
         setMovies(data.results);
+        console.log(data.results)
       })
       .catch((err) => alert.warn(err.message));
   }, []);
