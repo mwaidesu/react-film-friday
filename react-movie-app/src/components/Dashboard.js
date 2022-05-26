@@ -53,6 +53,7 @@ function Dashboard() {
             type="search"
             placeholder="Search..."
             className="search"
+            
             value={searchTerm}
             onChange={handleOnChange}
           />
