@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 import { useParams } from "react-router-dom";
-// import AddFavorites from "../AddFavorites";
 import { ToastContainer, toast } from "react-toastify";
  import "react-toastify/dist/ReactToastify.css";
-// import "./MovieDetails.css";
+ import { Link } from "react-router-dom";
+
 const IMG_URL = "https://image.tmdb.org/t/p/w1280";
+
 
 export const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
-  // const [favorites,setFavorites] =useState([])
 
   useEffect(() => {
     getMovie();
@@ -26,9 +27,21 @@ export const MovieDetails = () => {
       .catch((err) => alert.warn(err.message));
   };
 
+  const {
+    addMovieToFavorites, favorites
+  } = useContext(GlobalContext)
+
   const notify = () => {
     toast.success(movie.title + " has been added to favorites!");
   };
+
+  function favorite(){
+    addMovieToFavorites(movie);
+    notify();
+  }
+
+  let storedMovie = favorites.find(o => o.id ===movie.id);
+  const favoritesDisabled = storedMovie ? true : false;
 
   return (
     <>
@@ -63,13 +76,14 @@ export const MovieDetails = () => {
 
       <div className=" flex justify-center">
         <button
-          onClick={notify}
+          disabled={favoritesDisabled}
+          onClick={favorite}
           className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2
           flex items-center hover:bg-slate-700 
           "
           id="btn"
         >
-          <span className="px-2">Add Movie To Favorites</span>
+          <span className="px-2">Favorite {movie.title} </span>
           <svg
             className="bg-red"
             xmlns="http://www.w3.org/2000/svg"
@@ -82,9 +96,19 @@ export const MovieDetails = () => {
             <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
           </svg>
         </button>
-        <ToastContainer theme="colored"/>
+        <Link to="/">
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+            Home
+          </button>
+        </Link>
 
-        {/* <AddFavorites /> */}
+        <Link to="/favorites">
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+            Favorites
+          </button>
+        </Link>
+
+        <ToastContainer theme="colored" />
       </div>
     </>
   );

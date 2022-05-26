@@ -60,6 +60,13 @@ padding: 1.4rem;
 outline:0;
 }
 
+/* .count-pill {
+  display: block;
+  background-color: #0a81AB;
+  padding: 7px;
+  border-radius: 50px;
+} */
+
 .theme-div{
   padding: 1rem;
   display: flex;
@@ -69,6 +76,11 @@ outline:0;
 
 .theme-button{
   margin-right: 1rem;
+}
+
+.theme-button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .movie-container{

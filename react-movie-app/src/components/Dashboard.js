@@ -51,9 +51,8 @@ function Dashboard() {
         <form onSubmit={handleOnSubmit}>
           <input
             type="search"
-            placeholder="Search..."
+            placeholder="Film Fridays..."
             className="search"
-            
             value={searchTerm}
             onChange={handleOnChange}
           />
@@ -70,6 +69,12 @@ function Dashboard() {
         <Link to="/action">
           <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
             Action Movies
+          </button>
+        </Link>
+
+        <Link to="/favorites">
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+            Favorites
           </button>
         </Link>
 
