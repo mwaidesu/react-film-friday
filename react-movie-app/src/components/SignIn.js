@@ -14,7 +14,7 @@ const Signin = () => {
     setError('')
     try {
       await signIn(email, password)
-      navigate('/action')
+      navigate('/dashboard')
       console.log(email)
     } catch (e) {
       setError(e.message)
@@ -46,8 +46,6 @@ const Signin = () => {
         <button className='border border-blue-500 bg-blue-600 hover:bg-blue-500 w-full p-4 my-2 text-white'>
           Sign In
         </button>
-
-        <button onClick={()=>{navigate("/action")}} type="submit">To be deleted</button>
       </form>
     </div>
   );

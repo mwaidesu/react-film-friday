@@ -32,7 +32,7 @@ export function ActionMovies() {
       </header>
 
       <div className="theme-div">
-        <Link to="/">
+        <Link to="/dashboard">
           <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
             Home
           </button>

@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import "./../index.css";
 import Movie from "./Movie";
 import useLocalStorage from "use-local-storage";
-import { Link, useNavigate } from 'react-router-dom'
-import { UserAuth } from './context/AuthContext';
-
+import { Link} from 'react-router-dom'
 
 const apiKey = "api_key=efb8d52d72f50732f48333d163521021";
 const mainURL = "https://api.themoviedb.org/3";
@@ -15,8 +13,6 @@ function Dashboard() {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const { user, logout } = UserAuth();
-  const navigate = useNavigate();
 
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const switchTheme = () => {
@@ -50,23 +46,13 @@ function Dashboard() {
     setSearchTerm(event.target.value);
   };
 
-
-  const handleLogout = async () => {
-    try {
-      await logout();
-      navigate('/');
-      console.log('You are logged out')
-    } catch (e) {
-      console.log(e.message);
-    }
-
     return (
       <div data-theme={theme}>
         <header className="header">
           <form onSubmit={handleOnSubmit}>
             <input
               type="search"
-              placeholder={<p>User Email: {user && user.email}</p>}
+              placeholder = "Search..."
               className="search"
               value={searchTerm}
               onChange={handleOnChange}
@@ -75,9 +61,6 @@ function Dashboard() {
         </header>
 
         <div className="theme-div">
-          <button onClick={handleLogout} className="border px-6 py-2 my-4">
-            Logout
-          </button>
           
           <Link to="/horror">
             <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
@@ -113,5 +96,5 @@ function Dashboard() {
       </div>
     );
   }
-}
+
   export default Dashboard;
