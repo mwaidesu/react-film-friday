@@ -32,22 +32,22 @@ export function Horror() {
         <h1>Horror Movies</h1>
       </header>
 
-      <div className="theme-div">
+      <div className="theme-div flex flex-wrap">
         <Link to="/dashboard">
-          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2 mb-2">
             Home
           </button>
         </Link>
 
         <Link to="/action">
           {" "}
-          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2 mb-2">
             Action Movies
           </button>
         </Link>
 
         <button
-          className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2"
+          className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2 mb-2"
           id="btn"
           onClick={switchTheme}
         >

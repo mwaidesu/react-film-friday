@@ -23,8 +23,8 @@
   color:  white;
 }
 
-body{
-  
+body {
+
   color: var(--text-primary);
   font-family: 'Courier New', Courier, monospace;
   flex-direction: column;

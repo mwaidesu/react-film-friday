@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./../index.css";
 import Movie from "./Movie";
 import useLocalStorage from "use-local-storage";
-import { Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const apiKey = "api_key=efb8d52d72f50732f48333d163521021";
 const mainURL = "https://api.themoviedb.org/3";
@@ -12,7 +12,6 @@ const searchURL = `${mainURL}/search/movie?${apiKey + "&query="}`;
 function Dashboard() {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
 
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const switchTheme = () => {
@@ -46,55 +45,60 @@ function Dashboard() {
     setSearchTerm(event.target.value);
   };
 
-    return (
-      <div data-theme={theme}>
-        <header className="header">
-          <form onSubmit={handleOnSubmit}>
-            <input
-              type="search"
-              placeholder = "Search..."
-              className="search"
-              value={searchTerm}
-              onChange={handleOnChange}
-            />
-          </form>
-        </header>
+  return (
+    <div data-theme={theme}>
+      <header className="header flex flex-wrap">
+        <form onSubmit={handleOnSubmit} className="mb-2">
+          <input
+            type="search"
+            placeholder="Search..."
+            className="search"
+            value={searchTerm}
+            onChange={handleOnChange}
+          />
+        </form>
 
-        <div className="theme-div">
-          
-          <Link to="/horror">
-            <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
-              Horror Movies
-            </button>
-          </Link>
-
-          <Link to="/action">
-            <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
-              Action Movies
-            </button>
-          </Link>
-
-          <Link to="/favorites">
-            <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2">
-              Favorites
-            </button>
-          </Link>
-
-          <button
-            className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2"
-            id="btn"
-            onClick={switchTheme}
-          >
-            Change Theme
+        <Link to="/">
+          <button className="theme-button ml-3 hover:bg-blue-500 px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+            Log Out
           </button>
-        </div>
+        </Link>
+      </header>
 
-        <div className="movie-container">
-          {movies.length > 0 &&
-            movies.map((movie) => <Movie key={movie.id} {...movie} />)}
-        </div>
+      <div className="theme-div flex flex-wrap">
+        <Link to="/horror">
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2 mb-2">
+            Horror Movies
+          </button>
+        </Link>
+
+        <Link to="/action">
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2 mb-2">
+            Action Movies
+          </button>
+        </Link>
+
+        <Link to="/favorites">
+          <button className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2 mb-2">
+            Favorites
+          </button>
+        </Link>
+
+        <button
+          className="theme-button bg-black px-3 py-2 text-white rounded-lg border-solid border-white border-2 mb-2"
+          id="btn"
+          onClick={switchTheme}
+        >
+          Change Theme
+        </button>
       </div>
-    );
-  }
 
-  export default Dashboard;
+      <div className="movie-container">
+        {movies.length > 0 &&
+          movies.map((movie) => <Movie key={movie.id} {...movie} />)}
+      </div>
+    </div>
+  );
+}
+
+export default Dashboard;
