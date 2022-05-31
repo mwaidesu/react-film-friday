@@ -3,6 +3,10 @@ import "./../index.css";
 import Movie from "./Movie";
 import useLocalStorage from "use-local-storage";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+import { UserAuth } from "./context/AuthContext";
 
 const apiKey = "api_key=efb8d52d72f50732f48333d163521021";
 const mainURL = "https://api.themoviedb.org/3";
@@ -45,6 +49,19 @@ function Dashboard() {
     setSearchTerm(event.target.value);
   };
 
+  const { user, logout } = UserAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/");
+      toast.success(`${user.email} has been logged in!`);
+    } catch (e) {
+      toast.error("Logging out")
+    }
+  };
+
   return (
     <div data-theme={theme}>
       <header className="header flex flex-wrap">
@@ -59,10 +76,14 @@ function Dashboard() {
         </form>
 
         <Link to="/">
-          <button className="theme-button ml-3 hover:bg-blue-500 px-3 py-2 text-white rounded-lg border-solid border-white border-2">
+          <button
+            className="theme-button ml-3 hover:bg-blue-500 px-3 py-2 text-white rounded-lg border-solid border-white border-2"
+            onClick={handleLogout}
+          >
             Log Out
           </button>
         </Link>
+        <ToastContainer theme="colored" />
       </header>
 
       <div className="theme-div flex flex-wrap">
