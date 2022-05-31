@@ -74,7 +74,7 @@ export const MovieDetails = () => {
         </div>
       </div>
 
-      <div className=" flex justify-center">
+      <div className=" flex flex-wrap justify-center">
         <button
           disabled={favoritesDisabled}
           onClick={favorite}
